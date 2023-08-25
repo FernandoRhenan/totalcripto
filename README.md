@@ -1,3 +1,3 @@
-# clone-tabNews
+# totalCripto
 
-Um projeto do https://curso.dev , com intuito de aperfeiçoamento técnico!
+Um projeto baseado no https://tabnews.com.br, e sendo executado com o https://curso.dev. Tem intuito de criar uma comunidade para discutir sobre criptomoedas e todo o ecossistema.
