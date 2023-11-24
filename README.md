@@ -2,7 +2,7 @@
 
 <p>Um projeto baseado no https://tabnews.com.br, do Filipe Deschamps e sendo executado com o https://curso.dev.</p>
 <p>
-  A principal caractística desse projeto é que isso é um projeto feito ao decorrer do https://curso.dev. Esse curso tem como um dos objetivos, preencher lacunas de conhecimento que são deixadas de lado em outros 
+  A principal caractística desse projeto é que isso é um projeto feito ao decorrer do curso. Tem como um dos objetivos, preencher lacunas de conhecimento que são deixadas de lado em outros 
   cursos pela internet e faculdade. Por experiência própria, posso dizer que há pequenos detalhes que te deixam mais preparados para o dia a dia como desenvolvedor, esse curso está sendo responsável por grande 
   parte de um conhecimento difícil de se encontrar e que incentiva a entender as coisas desde sua base, o que faz tudo ficar mais sólido.
 </p>
