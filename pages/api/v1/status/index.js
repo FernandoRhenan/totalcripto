@@ -1,11 +1,17 @@
 import database from 'infra/database.js'
+import { version } from 'react'
 
 async function status(request, response) {
 
-  const result = await database.query('SELECT 1 + 1 as sum;')
+  const { rows } = await database.query("SELECT (SELECT count(*) FROM pg_stat_activity), (SELECT current_setting('max_connections')::int), (SELECT version());")
 
-  console.log(result.rows)
-  response.status(200).json({ statuss: "ok" })
+  const updatedAt = new Date().toISOString()
+  response.status(200).json({
+    updated_at: updatedAt,
+    count: rows[0].count,
+    max_connections: rows[0].current_setting,
+    version: rows[0].version
+  })
 }
 
 export default status
