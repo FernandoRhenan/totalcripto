@@ -16,10 +16,10 @@
 <p>
   Para rodar esse projeto em sua máquina local, você primeiro deverá clonar o repositório para sua máquina, posteriomente digitar <b>npm install</b> dentro da raiz do projeto e então aguardar os pacotes serem baixados.
 
-  
-  Feito isso, há alguns comandos que serão úteis para o funcionamento do projeto.
-  <br/>
-  São eles:
+Feito isso, há alguns comandos que serão úteis para o funcionamento do projeto.
+<br/>
+São eles:
+
   <ul>
     <li><b>npm run dev</b>: <span>Serve para inicializar o container docker e o servidor.</span></li>
     <li><b>npm run test:watch</b>: <span>Serve para inicializar o modo watch para os testes.</span></li>
