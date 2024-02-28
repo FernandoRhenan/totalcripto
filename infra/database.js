@@ -27,7 +27,7 @@ export default {
 };
 
 function getSLL() {
-  if (process.env.POSTGRES_CA) {
+  if (process.env.POSTGRES_CA && process.env.NODE_ENV === 'production') {
     return {
       ca: process.env.POSTGRES_CA
     }
