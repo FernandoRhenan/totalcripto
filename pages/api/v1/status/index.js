@@ -1,6 +1,6 @@
 import database from "infra/database.js";
 
-async function status(request, response) {
+export default async function status(request, response) {
   const databaseName = process.env.POSTGRES_DB
   const serverVersion = await database.query("SHOW server_version;");
   const maxConnections = await database.query("SHOW max_connections;");
@@ -21,5 +21,3 @@ async function status(request, response) {
     },
   });
 }
-
-export default status;
