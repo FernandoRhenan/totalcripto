@@ -14,14 +14,10 @@ test("Invalid METHOD to /api/v1/migrations should return 405", async () => {
     method: "PUT",
   });
 
+  const jsonResponse1 = await response1.json();
+  const jsonResponse2 = await response2.json();
   expect(response1.status).toBe(405);
   expect(response2.status).toBe(405);
-
-  const statusResponse = await fetch("http://localhost:3000/api/v1/status");
-
-  const jsonResponse = await statusResponse.json();
-
-  expect(statusResponse.status).toBe(200);
-  expect(jsonResponse.services.database.open_connections).toBe(1);
-
+  expect(jsonResponse1.error).toBe("Method not allowed.");
+  expect(jsonResponse2.error).toBe("Method not allowed.");
 });
