@@ -10,6 +10,7 @@ export default async function migrations(request, response) {
   let dbClient;
 
   try {
+    // Open a new connection on DB
     dbClient = await database.getNewClient();
 
     const defaultMigrationSet = {
@@ -42,6 +43,7 @@ export default async function migrations(request, response) {
     console.error(error);
     throw error;
   } finally {
+    // Close this connection
     await dbClient.end();
   }
 }

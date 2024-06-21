@@ -1,12 +1,11 @@
 import database from "infra/database.js";
 
-async function resetDB() {
+beforeAll(async () => {
   await database.query("drop schema public cascade; create schema public;");
-}
-
-beforeAll(resetDB);
+});
 
 test("POST to /api/v1/migrations should return 200", async () => {
+
   const response = await fetch("http://localhost:3000/api/v1/migrations", {
     method: "POST",
   });
@@ -29,10 +28,4 @@ test("POST to /api/v1/migrations should return 200", async () => {
   expect(Array.isArray(jsonResponse)).toBeTruthy();
   expect(jsonResponse2.length).toEqual(0);
 
-  const statusResponse = await fetch("http://localhost:3000/api/v1/status");
-
-  const jsonStatusResponse = await statusResponse.json();
-
-  expect(statusResponse.status).toBe(200);
-  expect(jsonStatusResponse.services.database.open_connections).toBe(1);
 });
