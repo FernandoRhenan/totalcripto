@@ -13,5 +13,4 @@ test("GET to /api/v1/migrations should return 200", async () => {
 
   expect(Array.isArray(jsonResponse)).toBeTruthy();
   expect(jsonResponse.length).toBeGreaterThan(0);
-
 });
