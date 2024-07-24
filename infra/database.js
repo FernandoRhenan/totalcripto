@@ -29,9 +29,9 @@ async function getNewClient() {
   return client;
 }
 
-const database = { query, getNewClient }
+const database = { query, getNewClient };
 
-export default database
+export default database;
 
 function getSLL() {
   if (process.env.POSTGRES_CA && process.env.NODE_ENV === "production") {
