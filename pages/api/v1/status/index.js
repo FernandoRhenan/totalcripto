@@ -3,7 +3,6 @@ import { InternalServerError } from "infra/errors";
 
 export default async function status(request, response) {
   try {
-
     const databaseName = process.env.POSTGRES_DB;
     const serverVersion = await database.query("SHOW server_version;");
     const maxConnections = await database.query("SHOW max_connections;");
@@ -25,13 +24,12 @@ export default async function status(request, response) {
     });
   } catch (error) {
     const publicErrorObject = new InternalServerError({
-      cause: error
-    })
+      cause: error,
+    });
 
-    console.log("\nErro dentro do controller:")
-    console.error(publicErrorObject)
+    console.log("\nErro dentro do controller:");
+    console.error(publicErrorObject);
 
-    response.status(500).json(publicErrorObject)
-
+    response.status(500).json(publicErrorObject);
   }
 }
