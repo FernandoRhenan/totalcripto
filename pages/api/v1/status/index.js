@@ -1,36 +1,17 @@
-import { createRouter } from 'next-connect'
+import { createRouter } from "next-connect";
 import database from "infra/database.js";
-import { InternalServerError, MethodNotAllowedError } from "infra/errors";
+import controller from "infra/controller.js";
 
-const router = createRouter()
+const router = createRouter();
 
-router.get(getHandler)
+router.get(getHandler);
 
 export default router.handler({
-  onError: onErrorHandler,
-  onNoMatch: onNoMatchHandler
-})
-
-async function onErrorHandler(error, request, response) {
-
-  const publicErrorObject = new InternalServerError({
-    cause: error,
-  });
-
-  console.log("\nErro dentro do next-connect:");
-  console.error(publicErrorObject);
-
-  response.status(500).json(publicErrorObject);
-
-}
-
-async function onNoMatchHandler(request, response) {
-  const error = new MethodNotAllowedError()
-  response.status(error.statusCode).json(error)
-}
+  onError: controller.errorHandlers.onError,
+  onNoMatch: controller.errorHandlers.onNoMatch,
+});
 
 async function getHandler(request, response) {
-
   const databaseName = process.env.POSTGRES_DB;
   const serverVersion = await database.query("SHOW server_version;");
   const maxConnections = await database.query("SHOW max_connections;");
